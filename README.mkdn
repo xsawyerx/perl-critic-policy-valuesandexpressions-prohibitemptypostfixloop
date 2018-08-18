@@ -1,0 +1,41 @@
+# NAME
+
+Perl::Critic::Policy::ValuesAndExpressions::ProhibitEmptyPostfixLoop - Prohibit writing an postfix loop with no statement
+
+# VERSION
+
+version 0.001
+
+# DESCRIPTION
+
+The postfix loop is a common pattern, but you can accidentally add a
+semicolon and make it into a meaningless statement.
+
+    do_something($_)
+        for @items;     # ok
+
+    do_something($_);
+        for @items;     # not ok
+
+    $_++ for @items;    # ok
+    $_++; for @items;   # not ok
+
+# CONFIGURATION
+
+This policy is not configurable except for the standard options.
+
+# SEE ALSO
+
+[Perl::Critic](https://metacpan.org/pod/Perl::Critic)
+
+# AUTHOR
+
+Sawyer X <xsawyerx@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2018 by Sawyer X.
+
+This is free software, licensed under:
+
+    The MIT (X11) License
